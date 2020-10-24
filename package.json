@@ -4,6 +4,8 @@
   "description": "A dynamic web app whack-a-mole game inspired by Pokemon.",
   "main": "webpack.config.js",
   "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch --mode=development --devtool=source-map",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

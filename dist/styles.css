@@ -1,0 +1,11 @@
+.game-background {
+  background: url('images/background.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+#root {
+  background-color: #000000;
+  height: 100vh;
+}
