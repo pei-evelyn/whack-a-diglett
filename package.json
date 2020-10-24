@@ -1,0 +1,31 @@
+{
+  "name": "whack-a-diglett",
+  "version": "1.0.0",
+  "description": "A dynamic web app whack-a-mole game inspired by Pokemon.",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Connor-Ashlock/whack-a-diglett.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Connor-Ashlock/whack-a-diglett/issues"
+  },
+  "homepage": "https://github.com/Connor-Ashlock/whack-a-diglett#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-react-jsx": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "webpack": "^5.2.0",
+    "webpack-cli": "^4.1.0"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
