@@ -4,11 +4,7 @@ body {
 
 .start-title {
   color: #FFAA01;
-  text-shadow:
-    2px 2px 0 #153074,
-    2px 2px 2px #153074,
-    2px 5px 2px #153074,
-    5px 2px 2px #6d6d6d;
+  text-shadow: 2px 2px 0 #153074, 2px 2px 2px #153074, 2px 5px 2px #153074, 5px 2px 2px #6d6d6d;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,8 +34,15 @@ body {
   flex-direction: column;
 }
 
+.male {
+  background: url('images/bg-male');
+}
+
+.female {
+  background: url('images/bg-female.png');
+}
+
 .game-background {
-  background: url('images/background.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
