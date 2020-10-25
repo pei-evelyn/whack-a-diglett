@@ -2,10 +2,37 @@
   background: url('images/background.png');
   background-size: contain;
   background-repeat: no-repeat;
+  background-position: center;
   height: 500px;
+  width: 680px;
+  min-width: 680px;
+  min-height: 500px;
+  position: relative;
 }
 
 #root {
   background-color: #000000;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.diglett {
+  width: 231px;
+}
+
+.diglett-angry {
+  width: 145px;
+  position: absolute;
+  top: 35px;
+  left: 37px;
+}
+
+.diglett-container {
+  position: absolute;
+  top: 77px;
+  right: 10px;
+  width: 410px;
+  height: 320px;
 }

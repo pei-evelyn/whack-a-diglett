@@ -8,7 +8,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <Game />
+      <div className="game-background">
+        <Game />
+      </div>
     )
   }
 }
