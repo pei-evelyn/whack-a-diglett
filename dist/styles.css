@@ -39,7 +39,7 @@ body {
 }
 
 .game-background {
-  background: url('images/background.png');
+  background: url('images/background-updated.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -58,21 +58,66 @@ body {
   align-items: center;
 }
 
-.diglett {
-  width: 231px;
+.position-9,
+.position-8,
+.position-7,
+.position-6,
+.position-5,
+.position-4,
+.position-3,
+.position-2,
+.position-1 {
+  width: 120px;
 }
 
-.diglett-angry {
-  width: 145px;
+.position-2 {
   position: absolute;
-  top: 35px;
-  left: 37px;
+  left: 130px;
+}
+
+.position-3 {
+  position: absolute;
+  right: 0px;
+}
+
+.position-4 {
+  position: absolute;
+  top: 90px;
+}
+
+.position-5 {
+  position: absolute;
+  left: 130px;
+  top: 90px;
+}
+
+.position-6 {
+  position: absolute;
+  right: 0px;
+  top: 90px;
+}
+
+.position-7 {
+  position: absolute;
+  top: 180px;
+}
+
+.position-8 {
+  position: absolute;
+  left: 130px;
+  top: 180px;
+}
+
+.position-9 {
+  position: absolute;
+  right: 0px;
+  top: 180px;
 }
 
 .diglett-container {
   position: absolute;
-  top: 77px;
-  right: 10px;
-  width: 410px;
-  height: 320px;
+  top: 105px;
+  right: 6px;
+  width: 384px;
+  height: 270px;
 }

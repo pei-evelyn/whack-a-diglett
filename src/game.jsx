@@ -23,8 +23,8 @@ class Game extends React.Component {
     return (
       <div className="diglett-container">
         { this.state.isHit
-        ? <img className="diglett-angry" src="images/diglett-angry.png" />
-        : <img className="diglett" src="images/diglett.png" onClick={this.handleDiglettClick} />
+        ? <img className="position-8" src="images/diglett-angry.png" />
+        : <img className="position-8" src="images/diglett.png" onClick={this.handleDiglettClick} />
         }
       </div>
     )
