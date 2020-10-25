@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Start = props => {
-
   return (
       <div className="start-screen container">
         <div className="start-title row">
@@ -27,6 +26,5 @@ const Start = props => {
       </div>
     )
 }
-
 
 export default Start

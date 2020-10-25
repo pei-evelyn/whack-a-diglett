@@ -13,7 +13,6 @@ class App extends React.Component {
   }
 
   startGame(player) {
-    console.log(player)
     this.setState(state => ({
       isStarted: !state.isStarted,
       player: player
@@ -21,17 +20,9 @@ class App extends React.Component {
   }
 
   render() {
-    if (!this.state.isStarted) {
-      return (
-        <Start startGame={this.startGame}/>
-      )
-    }
-
-    return (
-      <div className="game-background">
-        <Game />
-      </div>
-    )
+    return !this.state.isStarted ?
+      <Start startGame={this.startGame} /> :
+      <div className="game-background"><Game /></div>
   }
 }
 
