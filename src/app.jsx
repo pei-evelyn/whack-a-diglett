@@ -7,22 +7,22 @@ class App extends React.Component {
     super(props);
     this.state = {
       isStarted: false,
-      player: null
+      gender: null
     };
     this.startGame = this.startGame.bind(this);
   }
 
-  startGame(player) {
+  startGame(gender) {
     this.setState(state => ({
       isStarted: !state.isStarted,
-      player: player
+      gender: gender
     }))
   }
 
   render() {
     return !this.state.isStarted ?
       <Start startGame={this.startGame} /> :
-      <div className="game-background"><Game /></div>
+      <div className={`game-background ${this.state.gender}`}><Game /></div>
   }
 }
 

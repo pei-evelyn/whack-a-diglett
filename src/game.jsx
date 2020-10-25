@@ -4,18 +4,18 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.handleDiglettClick = this.handleDiglettClick.bind(this);
-    this.state = { isHit: false, isHere: true };
+    this.state = { isHit: false, currentPosition: 'position-2' };
   }
 
   handleDiglettClick() {
     this.setState({ isHit: true });
     setTimeout(() => {
-      this.setState({ isHere: false });
-    }, 2000);
+      this.setState({ currentPosition: null });
+    }, 1600);
   }
 
   render() {
-    if (!this.state.isHere) {
+    if (!this.state.currentPosition) {
       return (
         <div className="diglett-container"></div>
       )
@@ -23,8 +23,8 @@ class Game extends React.Component {
     return (
       <div className="diglett-container">
         { this.state.isHit
-        ? <img className="position-8" src="images/diglett-angry.png" />
-        : <img className="position-8" src="images/diglett.png" onClick={this.handleDiglettClick} />
+        ? <img className={this.state.currentPosition} src="images/diglett-angry.png" />
+        : <img className={this.state.currentPosition} src="images/diglett.png" onClick={this.handleDiglettClick} />
         }
       </div>
     )
