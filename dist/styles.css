@@ -20,7 +20,7 @@ body {
 }
 
 .start-screen {
-  background: url('images/start-page.png');
+  background: url('./images/start-page.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -35,11 +35,11 @@ body {
 }
 
 .male {
-  background: url('images/bg-male');
+  background: url('./images/bg-male.png');
 }
 
 .female {
-  background: url('images/bg-female.png');
+  background: url('./images/bg-female.png');
 }
 
 .game-background {
