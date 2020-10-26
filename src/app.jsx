@@ -10,6 +10,7 @@ class App extends React.Component {
       gender: null
     };
     this.startGame = this.startGame.bind(this);
+    // this.endGame = this.endGame.bind(this);
   }
 
   startGame(gender) {
@@ -19,6 +20,10 @@ class App extends React.Component {
     }))
   }
 
+  // endGame() {
+
+  // }
+
   render() {
     return !this.state.isStarted ?
       <Start startGame={this.startGame} /> :
@@ -27,3 +32,5 @@ class App extends React.Component {
 }
 
 export default App;
+
+//
