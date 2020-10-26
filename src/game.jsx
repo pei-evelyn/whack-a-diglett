@@ -40,7 +40,6 @@ class Game extends React.Component {
           autoPlay
           loop
         />
-        <Timer />
         <div className="diglett-container">
           {this.state.isHit
             ? <img className={this.state.currentPosition} src="images/diglett-angry.png" />

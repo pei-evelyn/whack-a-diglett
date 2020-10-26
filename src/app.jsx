@@ -1,6 +1,7 @@
 import React from 'react';
 import Game from './game';
 import Start from './start';
+import Timer from './timer'
 
 class App extends React.Component {
   constructor(props) {
@@ -10,7 +11,6 @@ class App extends React.Component {
       gender: null
     };
     this.startGame = this.startGame.bind(this);
-    // this.endGame = this.endGame.bind(this);
   }
 
   startGame(gender) {
@@ -20,17 +20,19 @@ class App extends React.Component {
     }))
   }
 
-  // endGame() {
-
-  // }
-
   render() {
-    return !this.state.isStarted ?
-      <Start startGame={this.startGame} /> :
-      <div className={`game-background ${this.state.gender}`}><Game /></div>
+    if (!this.state.isStarted) {
+      return <Start startGame={this.startGame} />
+    }
+    return (
+      <>
+        <div className={`game-background ${this.state.gender}`}>
+          <Game />
+          <Timer />
+        </div>
+      </>
+    )
   }
 }
 
 export default App;
-
-//
