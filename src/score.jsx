@@ -4,9 +4,15 @@ class Score extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      score: 1000
+      score: 0
     }
     this.updateScore = this.updateScore.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.isHit !== prevProps.isHit) {
+      this.updateScore()
+    }
   }
 
   updateScore() {

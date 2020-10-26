@@ -1,7 +1,6 @@
 import React from 'react';
 import Game from './game';
 import Start from './start';
-import Score from './score';
 import Health from './health'
 
 class App extends React.Component {
@@ -22,13 +21,15 @@ class App extends React.Component {
   }
 
   render() {
-    return !this.state.isStarted ?
-      <Start startGame={this.startGame} /> :
+    if (!this.state.isStarted) {
+      return <Start startGame={this.startGame} />
+    }
+    return (
       <div className={`game-background ${this.state.gender}`}>
         <Health />
-        <Score />
         <Game />
       </div>
+    )
   }
 }
 
