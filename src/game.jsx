@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactAudioPlayer from 'react-audio-player';
 
 class Game extends React.Component {
   constructor(props) {
@@ -31,12 +32,20 @@ class Game extends React.Component {
       )
     }
     return (
+        <>
+        <ReactAudioPlayer
+          src="../dist/music/battle.ogg"
+          src="../dist/music/battle.mp3"
+          autoPlay
+          loop
+        />
       <div className="diglett-container">
         { this.state.isHit
         ? <img className={this.state.currentPosition} src="images/diglett-angry.png" />
         : <img className={this.state.currentPosition} src="images/diglett.png" onClick={this.handleDiglettClick} />
         }
       </div>
+        </>
     )
   }
 }
