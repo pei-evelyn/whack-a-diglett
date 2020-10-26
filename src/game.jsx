@@ -4,7 +4,7 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.handleDiglettClick = this.handleDiglettClick.bind(this);
-    this.state = { isHit: false, currentPosition: 'position-2' };
+    this.state = { isHit: false, currentPosition: null };
   }
 
   handleDiglettClick() {
@@ -12,6 +12,16 @@ class Game extends React.Component {
     setTimeout(() => {
       this.setState({ currentPosition: null });
     }, 1600);
+  }
+
+  getDiglettPosition() {
+    const position = ['position-1', 'position-2', 'position-3', 'position-4', 'position-5', 'position-6', 'position-7', 'position-8', 'position-9'];
+    const randomNum = Math.floor((Math.random() * 9) + 1);
+    this.setState({ currentPosition: position[randomNum] });
+  }
+
+  componentDidMount() {
+    this.getDiglettPosition();
   }
 
   render() {
