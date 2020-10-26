@@ -18,7 +18,7 @@ class Health extends React.Component {
   }
 
   countdownTime() {
-    if (this.state.timeRemaining === 0) {
+    if (this.state.timeRemaining === -1) {
       clearInterval(this.state.intervalId)
     } else {
       this.setState(state => {

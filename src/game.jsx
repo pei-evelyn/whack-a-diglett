@@ -10,6 +10,7 @@ class Game extends React.Component {
 
   handleDiglettClick() {
     this.setState({ isHit: true });
+    this.props.increaseHits();
   }
 
   getDiglettPosition() {

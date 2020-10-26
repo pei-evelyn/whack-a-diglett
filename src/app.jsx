@@ -25,7 +25,7 @@ class App extends React.Component {
 
   increaseHits() {
     this.setState(state => ({
-      hits: hits++
+      hits: state.hits + 1
     }))
   }
 
