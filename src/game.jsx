@@ -11,13 +11,14 @@ class Game extends React.Component {
   handleDiglettClick() {
     this.setState({ isHit: true });
     setTimeout(() => {
-      this.setState({ currentPosition: null });
-    }, 1600);
+      this.setState({ isHit: false, currentPosition: null });
+      this.getDiglettPosition();
+    }, 1000);
   }
 
   getDiglettPosition() {
     const position = ['position-1', 'position-2', 'position-3', 'position-4', 'position-5', 'position-6', 'position-7', 'position-8', 'position-9'];
-    const randomNum = Math.floor((Math.random() * 9) + 1);
+    const randomNum = Math.floor((Math.random() * 9));
     this.setState({ currentPosition: position[randomNum] });
   }
 
