@@ -129,30 +129,30 @@ body {
 }
 
 .score-container {
-  background-color: #E6E6E6;
-  position: absolute;
-  top: 100px;
-  left: 25px;
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(0, 0, 0, 0.45)),
+    url('images/scoreboard1.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px #adadad;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 4px dashed #888888;
-  border-radius: 2px;
-  box-shadow: 2px 2px 2px #505050;
+  position: absolute;
+  top: 100px;
+  left: 25px;
+  padding: 5px;
 }
 
 .score-container>h6, .score-container>p {
   margin-bottom: 0;
   margin-top: 10px;
   padding: 0 10px 5px;
-}
-
-.score-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .score-heading {
@@ -169,6 +169,30 @@ body {
   z-index: 1;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
+}
+
+.health-5 {
+  width: 106px;
+}
+
+.health-4 {
+  width: 80px;
+}
+
+.health-3 {
+  width: 60px;
+}
+
+.health-2 {
+  width: 40px;
+}
+
+.health-1 {
+  width: 20px;
+}
+
+.health-0 {
+  width: 0;
 }
 
 .player-health {

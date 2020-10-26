@@ -2,14 +2,14 @@ import React from 'react';
 import Game from './game';
 import Start from './start';
 import Score from './score';
+import Health from './health'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isStarted: false,
-      gender: null,
-      score: 0
+      gender: null
     };
     this.startGame = this.startGame.bind(this);
   }
@@ -25,6 +25,7 @@ class App extends React.Component {
     return !this.state.isStarted ?
       <Start startGame={this.startGame} /> :
       <div className={`game-background ${this.state.gender}`}>
+        <Health />
         <Score />
         <Game />
       </div>
