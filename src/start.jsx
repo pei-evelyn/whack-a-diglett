@@ -13,20 +13,20 @@ const Start = props => {
         <h4>Whack-a-Diglett</h4>
         <h6>Choose your player:</h6>
       </div>
-      <div className="row">
+      <div className="row button-row">
         <div className="col">
           <button
             className="choose-button"
             onClick={() => props.startGame('female')}>
-            Pick Me
-            </button>
+            Select
+          </button>
         </div>
         <div className="col">
           <button
             className="choose-button"
             onClick={() => props.startGame('male')}>
-            Pick Me
-            </button>
+            Select
+          </button>
         </div>
       </div>
     </div>
