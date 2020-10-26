@@ -4,19 +4,30 @@ body {
 
 .start-title {
   color: #FFAA01;
-  text-shadow: 2px 2px 0 #153074, 2px 2px 2px #153074, 2px 5px 2px #153074, 5px 2px 2px #6d6d6d;
+  text-shadow: 2px 2px 0 #153074, 2px 2px 2px #153074, 2px 5px 2px #153074, 5px 2px 5px #6d6d6d;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin: 10px;
+}
+
+.start-title>h4 {
+  padding-top: 35px;
+}
+
+.start-title>h6 {
+  padding-top: 10px;
 }
 
 .choose-button {
   font-size: 12px;
   padding: 10px;
   box-shadow: 4px 4px 0 #6e6e6e;
-  margin: 10px 20px;
+  margin: 0 25px;
+}
+
+.button-row {
+  position: relative;
+  top: 50px;
 }
 
 .start-screen {
@@ -61,15 +72,7 @@ body {
   align-items: center;
 }
 
-.position-9,
-.position-8,
-.position-7,
-.position-6,
-.position-5,
-.position-4,
-.position-3,
-.position-2,
-.position-1 {
+.position-9, .position-8, .position-7, .position-6, .position-5, .position-4, .position-3, .position-2, .position-1 {
   width: 112px;
 }
 
@@ -123,4 +126,59 @@ body {
   right: 4.3px;
   width: 384px;
   height: 270px;
+}
+
+.score-container {
+  background-color: #E6E6E6;
+  position: absolute;
+  top: 100px;
+  left: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 4px dashed #888888;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px #505050;
+}
+
+.score-container>h6, .score-container>p {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 0 10px 5px;
+}
+
+.score-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-heading {
+  font-size: 13px;
+}
+
+.diglett-health {
+  width: 106px;
+  height: 6.4px;
+  background-color: green;
+  position: absolute;
+  top: 60.5px;
+  left: 132px;
+  z-index: 1;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.player-health {
+  width: 98px;
+  height: 6.4px;
+  background-color: green;
+  position: absolute;
+  bottom: 40.5px;
+  right: 39.5px;
+  z-index: 1;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }

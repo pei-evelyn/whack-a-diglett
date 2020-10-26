@@ -8,7 +8,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       isStarted: false,
-      gender: null
+      gender: null,
+      score: 0
     };
     this.startGame = this.startGame.bind(this);
   }
@@ -23,12 +24,10 @@ class App extends React.Component {
   render() {
     return !this.state.isStarted ?
       <Start startGame={this.startGame} /> :
-      (
-        <div className={`game-background ${this.state.gender}`}>
-          <Score />
-          <Game />
-        </div>
-      )
+      <div className={`game-background ${this.state.gender}`}>
+        <Score />
+        <Game />
+      </div>
   }
 }
 
