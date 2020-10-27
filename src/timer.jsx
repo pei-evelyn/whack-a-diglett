@@ -5,8 +5,7 @@ export default class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      seconds: 45,
-      isOpen: false
+      seconds: 45
     }
     this.startCountdown = this.startCountdown.bind(this);
     this.renderTime = this.renderTime.bind(this);
@@ -29,7 +28,7 @@ export default class Timer extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.seconds === 1) {
-      this.setState({ isOpen: true })
+      this.props.openModal;
     }
   }
 
@@ -45,12 +44,12 @@ export default class Timer extends React.Component {
   }
 
   showModal() {
-    if (this.state.isOpen) return 'show d-block'
+    if (this.props.isOpen) return 'show d-block'
   }
 
   render() {
     const countdownTimer = this.renderTime();
-    const isOpen = this.state.isOpen;
+    const isOpen = this.props.isOpen;
     const showModal = this.showModal();
     let modal;
     if (isOpen) {

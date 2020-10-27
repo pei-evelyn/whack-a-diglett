@@ -11,10 +11,12 @@ class App extends React.Component {
     this.state = {
       isStarted: false,
       gender: null,
-      hits: 0
+      hits: 0,
+      isOpen: false
     };
     this.startGame = this.startGame.bind(this);
     this.increaseHits = this.increaseHits.bind(this);
+    this.openModal = this.openModal.bind(this);
   }
 
   startGame(gender) {
@@ -30,6 +32,12 @@ class App extends React.Component {
     }))
   }
 
+  openModal() {
+    this.setState(state => ({
+      isOpen: !state.isOpen
+    }))
+  }
+
   render() {
     if (!this.state.isStarted) {
       return <Start startGame={this.startGame} />
@@ -39,7 +47,7 @@ class App extends React.Component {
         <Score score={this.state.hits} />
         <Health />
         <Game increaseHits={this.increaseHits} />
-        <Timer restartGame={this.startGame} />
+        <Timer restartGame={this.startGame} openModal={this.openModal} isOpen={this.state.isOpen} />
       </div>
     )
   }
