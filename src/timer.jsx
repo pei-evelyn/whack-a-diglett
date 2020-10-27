@@ -28,7 +28,7 @@ export default class Timer extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.seconds === 1) {
-      this.props.openModal;
+      this.props.openModal();
     }
   }
 
