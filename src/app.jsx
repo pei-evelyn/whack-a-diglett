@@ -12,19 +12,21 @@ class App extends React.Component {
       isStarted: false,
       gender: null,
       hits: 0,
-      seconds: 45
+      seconds: 45,
+      difficulty: 'trainer'
     };
     this.startGame = this.startGame.bind(this);
     this.increaseHits = this.increaseHits.bind(this);
     this.startCountdown = this.startCountdown.bind(this)
   }
 
-  startGame(gender) {
+  startGame(gender, difficulty) {
     this.setState(state => ({
       isStarted: !state.isStarted,
       gender: gender,
       hits: 0,
-      seconds: 45
+      seconds: 45,
+      difficulty: difficulty
     }))
   }
 
@@ -61,6 +63,7 @@ class App extends React.Component {
           increaseHits={this.increaseHits}
           seconds={this.state.seconds}
           countdown={this.startCountdown}
+          difficulty={this.state.difficulty}
         />
         <Timer
           restartGame={this.startGame}
