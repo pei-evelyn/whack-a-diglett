@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
+import Timer from './timer';
 
 class Game extends React.Component {
   constructor(props) {
@@ -39,9 +40,9 @@ class Game extends React.Component {
           loop
         />
         <div className="diglett-container">
-          { this.state.isHit
-          ? <img className={this.state.currentPosition} src="images/diglett-angry.png" />
-          : <img className={this.state.currentPosition} src="images/diglett.png" onClick={this.handleDiglettClick} />
+          {this.state.isHit
+            ? <img className={this.state.currentPosition} src="images/diglett-angry.png" />
+            : <img className={this.state.currentPosition} src="images/diglett.png" onClick={this.handleDiglettClick} />
           }
         </div>
       </>
