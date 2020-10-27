@@ -46,6 +46,11 @@ class App extends React.Component {
     }
     return (
       <div className={`game-background ${this.state.gender}`}>
+        <div className="diglett-name">Diglett</div>
+        <div className="diglett-lvl">9</div>
+        <div className="trainer-name">Trainer</div>
+        <div className="trainer-lvl">62</div>
+        <div className="trainer-atr">114 114</div>
         <Score score={this.state.hits} />
         <Health />
         <Game increaseHits={this.increaseHits} modal={this.state.isOpen} />

@@ -240,3 +240,34 @@ body {
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
 }
+
+.diglett-name {
+  position: absolute;
+  left: 30px;
+  top: 31px;
+}
+
+.diglett-lvl {
+  position: absolute;
+  left: 209px;
+  top: 31px;
+}
+
+.trainer-name {
+  position: absolute;
+  bottom: 50px;
+  right: 135px;
+}
+
+.trainer-lvl {
+  position: absolute;
+  bottom: 50px;
+  right: 35px;
+}
+
+.trainer-atr {
+  position: absolute;
+  bottom: 23px;
+  right: 53px;
+  font-size: .8rem;
+}
