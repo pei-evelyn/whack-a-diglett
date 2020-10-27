@@ -1,16 +1,16 @@
 import React from 'react';
-import ReactModal from 'react-modal';
+import Modal from './modal'
 
-ReactModal.setAppElement('#root')
 export default class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      seconds: 10,
+      seconds: 45,
       isOpen: false
     }
     this.startCountdown = this.startCountdown.bind(this);
     this.renderTime = this.renderTime.bind(this);
+    this.showModal = this.showModal.bind(this);
   }
 
   startCountdown() {
@@ -44,24 +44,25 @@ export default class Timer extends React.Component {
     }
   }
 
+  showModal() {
+    if (this.state.isOpen) return 'show d-block'
+  }
+
   render() {
     const countdownTimer = this.renderTime();
     const isOpen = this.state.isOpen;
+    const showModal = this.showModal();
+    let modal;
+    if (isOpen) {
+      modal = (
+        <Modal hidden={showModal} restartGame={this.props.restartGame} />
+      )
+    }
     return (
       <>
-        <div>
-          <ReactModal
-            isOpen={isOpen}
-            contentLabel="Example Modal"
-          >
-            <img src="images/Countdowntimer.png"></img>
-          </ReactModal>
-        </div>
+        {modal}
         <div className="timer-container">
-          <img className="timer" src="images/Countdowntimer.png"></img>
-          <div className="timer-text">
-            {countdownTimer}
-          </div>
+          <p>{countdownTimer}</p>
         </div>
       </>
     )

@@ -1,34 +1,26 @@
-// import React from 'react';
-// import Modal from 'react-modal';
+import React from 'react';
 
+const Modal = props => {
 
-// export default class Modal extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       isOpen: false
-//     }
-//     this.afterOpenModal = this.afterOpenModal.bind(this);
-//   }
+  return (
+    <>
+      <div className={`modal fade + ${props.hidden}`} id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLongTitle">Game Over</h5>
+            </div>
+            <div className="modal-body">
+              Would you like to play again?
+            </div>
+            <div className="modal-footer d-flex justify-content-center">
+              <button type="button" onClick={() => props.restartGame(null)} className="btn btn-primary">Gotta Whack em all!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
-//   afterOpenModal() {
-//     subtitle.style.color = '#f00';
-//   }
-
-//   render() {
-//     const isOpen = this.state.isOpen
-//     return (
-//       <div>
-//         <Modal
-//           isOpen={isOpen}
-//           onAfterOpen={this.afterOpenModal()}
-//           style={customStyles}
-//           contentLabel="Example Modal"
-//         >
-//           <h2>Hello</h2>
-//         </Modal>
-//       </div>
-//     )
-//   }
-
-// }
+export default Modal;

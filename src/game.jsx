@@ -11,27 +11,25 @@ class Game extends React.Component {
 
   handleDiglettClick() {
     this.setState({ isHit: true });
-    setTimeout(() => {
-      this.setState({ currentPosition: null });
-    }, 1600);
   }
 
   getDiglettPosition() {
     const position = ['position-1', 'position-2', 'position-3', 'position-4', 'position-5', 'position-6', 'position-7', 'position-8', 'position-9'];
-    const randomNum = Math.floor((Math.random() * 9) + 1);
-    this.setState({ currentPosition: position[randomNum] });
+    const randomNum = Math.floor((Math.random() * 9));
+    if (position[randomNum] === this.state.currentPosition) {
+      return this.getDiglettPosition();
+    }
+    this.setState({ currentPosition: position[randomNum], isHit: false });
   }
 
   componentDidMount() {
     this.getDiglettPosition();
+    setInterval(() => {
+      this.getDiglettPosition();
+    }, 900)
   }
 
   render() {
-    if (!this.state.currentPosition) {
-      return (
-        <div className="diglett-container"></div>
-      )
-    }
     return (
       <>
         <ReactAudioPlayer
