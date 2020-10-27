@@ -1,39 +1,10 @@
 import React from 'react';
 import Modal from './modal'
 
-export default class Timer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      seconds: 45
-    }
-    this.startCountdown = this.startCountdown.bind(this);
-    this.renderTime = this.renderTime.bind(this);
-    this.showModal = this.showModal.bind(this);
-  }
+const Timer = props => {
 
-  startCountdown() {
-    setTimeout(() => {
-      this.setState({ seconds: this.state.seconds - 1 })
-      if (this.state.seconds === 0) {
-        return;
-      }
-      this.startCountdown();
-    }, 1000)
-  }
-
-  componentDidMount() {
-    this.startCountdown();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.seconds === 1) {
-      this.props.openModal();
-    }
-  }
-
-  renderTime() {
-    const time = this.state.seconds;
+  const renderTime = props => {
+    const time = props.seconds;
     if (time === 0) {
       return "00:00"
     } else if (time < 10) {
@@ -43,27 +14,22 @@ export default class Timer extends React.Component {
     }
   }
 
-  showModal() {
-    if (this.props.isOpen) return 'show d-block'
+  const showModal = props => {
+    return props.seconds === 0 ? 'show d-block' : 'hidden';
   }
 
-  render() {
-    const countdownTimer = this.renderTime();
-    const isOpen = this.props.isOpen;
-    const showModal = this.showModal();
-    let modal;
-    if (isOpen) {
-      modal = (
-        <Modal hidden={showModal} restartGame={this.props.restartGame} score={this.props.score} />
-      )
-    }
-    return (
-      <>
-        {modal}
-        <div className="timer-container">
-          <p>{countdownTimer}</p>
-        </div>
-      </>
-    )
-  }
+
+  return (
+    <>
+      <Modal hidden={showModal(props)}
+        restartGame={props.restartGame}
+        score={props.score}
+      />
+      <div className="timer-container">
+        <p>{renderTime(props)}</p>
+      </div>
+    </>
+  )
 }
+
+export default Timer;

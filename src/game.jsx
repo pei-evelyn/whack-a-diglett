@@ -26,9 +26,10 @@ class Game extends React.Component {
   componentDidMount() {
     this.getDiglettPosition();
     let int = setInterval(() => {
-      if (this.props.modal) return clearInterval(int);
+      if (this.props.seconds === 0) return clearInterval(int);
       this.getDiglettPosition();
     }, 900)
+    this.props.countdown();
   }
 
   render() {
