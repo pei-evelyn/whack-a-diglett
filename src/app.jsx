@@ -23,7 +23,8 @@ class App extends React.Component {
     this.setState(state => ({
       isStarted: !state.isStarted,
       gender: gender,
-      isOpen: false
+      isOpen: false,
+      hits: 0
     }))
   }
 
