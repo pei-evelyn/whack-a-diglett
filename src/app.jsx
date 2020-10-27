@@ -12,19 +12,19 @@ class App extends React.Component {
       isStarted: false,
       gender: null,
       hits: 0,
-      isOpen: false
+      seconds: 45
     };
     this.startGame = this.startGame.bind(this);
     this.increaseHits = this.increaseHits.bind(this);
-    this.openModal = this.openModal.bind(this);
+    this.startCountdown = this.startCountdown.bind(this)
   }
 
   startGame(gender) {
     this.setState(state => ({
       isStarted: !state.isStarted,
       gender: gender,
-      isOpen: false,
-      hits: 0
+      hits: 0,
+      seconds: 45
     }))
   }
 
@@ -34,10 +34,14 @@ class App extends React.Component {
     }))
   }
 
-  openModal() {
-    this.setState(state => ({
-      isOpen: !state.isOpen
-    }))
+  startCountdown() {
+    setTimeout(() => {
+      this.setState({ seconds: this.state.seconds - 1 })
+      if (this.state.seconds === 0) {
+        return;
+      }
+      this.startCountdown();
+    }, 1000)
   }
 
   render() {
@@ -53,8 +57,18 @@ class App extends React.Component {
         <div className="trainer-atr">114 114</div>
         <Score score={this.state.hits} />
         <Health />
-        <Game increaseHits={this.increaseHits} modal={this.state.isOpen} />
-        <Timer restartGame={this.startGame} openModal={this.openModal} isOpen={this.state.isOpen} score={this.state.hits} />
+        <Game
+          increaseHits={this.increaseHits}
+          seconds={this.state.seconds}
+          countdown={this.startCountdown}
+        />
+        <Timer
+          restartGame={this.startGame}
+          openModal={this.openModal}
+          isOpen={this.state.isOpen}
+          score={this.state.hits}
+          seconds={this.state.seconds}
+        />
       </div>
     )
   }

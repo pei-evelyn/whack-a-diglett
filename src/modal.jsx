@@ -17,7 +17,7 @@ const Modal = props => {
               Would you like to play again?
             </div>
             <div className="modal-footer d-flex justify-content-center">
-              <button type="button" onClick={() => props.restartGame(null)} className="btn btn-primary">Gotta Whack em all!</button>
+              <button type="button" onClick={() => props.restartGame()} className="btn btn-primary">Gotta Whack em all!</button>
             </div>
           </div>
         </div>
