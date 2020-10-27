@@ -54,7 +54,7 @@ export default class Timer extends React.Component {
     let modal;
     if (isOpen) {
       modal = (
-        <Modal hidden={showModal} restartGame={this.props.restartGame} />
+        <Modal hidden={showModal} restartGame={this.props.restartGame} score={this.props.score} />
       )
     }
     return (
