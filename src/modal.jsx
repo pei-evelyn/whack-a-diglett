@@ -7,8 +7,11 @@ const Modal = props => {
       <div className={`modal fade + ${props.hidden}`} id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
-            <div className="modal-header">
+            <div className="modal-header d-flex justify-content-center">
               <h5 className="modal-title" id="exampleModalLongTitle">Game Over</h5>
+            </div>
+            <div className="d-flex justify-content-center mt-2">
+              {`High Score: ${props.score * 100}`}
             </div>
             <div className="modal-body">
               Would you like to play again?
