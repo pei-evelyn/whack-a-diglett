@@ -47,7 +47,7 @@ class App extends React.Component {
       <div className={`game-background ${this.state.gender}`}>
         <Score score={this.state.hits} />
         <Health />
-        <Game increaseHits={this.increaseHits} />
+        <Game increaseHits={this.increaseHits} modal={this.state.isOpen} />
         <Timer restartGame={this.startGame} openModal={this.openModal} isOpen={this.state.isOpen} score={this.state.hits} />
       </div>
     )
