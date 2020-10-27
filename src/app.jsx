@@ -22,7 +22,8 @@ class App extends React.Component {
   startGame(gender) {
     this.setState(state => ({
       isStarted: !state.isStarted,
-      gender: gender
+      gender: gender,
+      isOpen: false
     }))
   }
 
@@ -46,7 +47,7 @@ class App extends React.Component {
       <div className={`game-background ${this.state.gender}`}>
         <Score score={this.state.hits} />
         <Health />
-        <Game increaseHits={this.increaseHits} />
+        <Game increaseHits={this.increaseHits} modal={this.state.isOpen} />
         <Timer restartGame={this.startGame} openModal={this.openModal} isOpen={this.state.isOpen} />
       </div>
     )
