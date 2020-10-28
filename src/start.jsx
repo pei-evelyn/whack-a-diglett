@@ -29,7 +29,7 @@ class Start extends React.Component {
           </div>
         </div>
         <h6 className="start-title mb-3">Choose your player:</h6>
-        <div className="row button-row mb-5">
+        <div className="row mb-5">
           <div className="col">
             <button
               className="choose-button"
@@ -45,7 +45,7 @@ class Start extends React.Component {
           </button>
           </div>
         </div>
-        <div className="row mb-4 button-row">
+        <div className="row mb-4">
           <SoundButton musicState={this.props.musicState} startMusic={this.props.startMusic} />
         </div>
       </div>
