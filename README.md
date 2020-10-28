@@ -14,7 +14,7 @@ A dynamic web app whack-a-mole game inspired by Pokemon.
 - Audacity
 
 ## Live Demo
-https://whack-a-diglett.connorashlock.com
+https://whack-a-diglett.evelynpei.com/
 
 ## Features
 - User can start game
