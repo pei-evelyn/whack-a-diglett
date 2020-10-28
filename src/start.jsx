@@ -5,7 +5,7 @@ class Start extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.state = { difficulty : 'trainer' }
+    this.state = { difficulty: 'trainer' }
   }
 
   handleChange() {
@@ -33,14 +33,14 @@ class Start extends React.Component {
           <div className="col">
             <button
               className="choose-button"
-              onClick={() => this.props.startGame('female', this.state.difficulty)}>
+              onClick={() => this.props.startGame('female', this.state.difficulty, false)}>
               Select
           </button>
           </div>
           <div className="col">
             <button
               className="choose-button"
-              onClick={() => this.props.startGame('male', this.state.difficulty)}>
+              onClick={() => this.props.startGame('male', this.state.difficulty, false)}>
               Select
           </button>
           </div>

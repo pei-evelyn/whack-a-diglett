@@ -15,6 +15,7 @@ class App extends React.Component {
       hits: 0,
       seconds: 45,
       paused: true,
+      title: true,
       difficulty: 'trainer'
     };
     this.startGame = this.startGame.bind(this);
@@ -22,21 +23,25 @@ class App extends React.Component {
     this.startCountdown = this.startCountdown.bind(this);
     this.playTitleMusic = this.playTitleMusic.bind(this);
     this.titleMusic = new Audio('music/title-screen.ogg');
+    this.battleMusic = new Audio('music/battle.ogg');
   }
 
-  startGame(gender, difficulty) {
+  startGame(gender, difficulty, title) {
     this.setState(state => ({
       isStarted: !state.isStarted,
       gender: gender,
       hits: 0,
       seconds: 45,
-      difficulty: difficulty
+      difficulty: difficulty,
+      title: title
     }))
+    this.playTitleMusic();
   }
 
   playTitleMusic() {
     const musicState = this.state.paused
-    if (musicState) {
+    const titleScreen = this.state.title
+    if (musicState && titleScreen) {
       this.titleMusic.play();
       this.titleMusic.loop = true;
     } else {
