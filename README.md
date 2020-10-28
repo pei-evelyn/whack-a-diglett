@@ -36,7 +36,7 @@ https://whack-a-diglett.evelynpei.com/
 1. Clone the repository.
 
     ```shell
-    git clone https://github.com/Connor-Ashlock/whack-a-diglett.git
+    git clone https://github.com/pei-evelyn/whack-a-diglett.git
     cd whack-a-diglett
     ```
 2. Install all dependencies with npm.
