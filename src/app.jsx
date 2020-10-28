@@ -144,7 +144,6 @@ class App extends React.Component {
           isOpen={this.state.isOpen}
           score={this.state.hits}
           seconds={this.state.seconds}
-          pauseMusic={this.pauseBattleMusic}
         />
       </div>
     )
