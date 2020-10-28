@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactAudioPlayer from 'react-audio-player';
 import Timer from './timer';
 
 class Game extends React.Component {
@@ -12,6 +11,7 @@ class Game extends React.Component {
   handleDiglettClick() {
     this.setState({ isHit: true });
     this.props.increaseHits();
+    this.props.diglettSound();
   }
 
   getDiglettPosition() {
@@ -45,8 +45,8 @@ class Game extends React.Component {
       <>
         <div className="diglett-container">
           {this.state.isHit
-            ? <img className={this.state.currentPosition} src="images/diglett-angry.png" />
-            : <img className={this.state.currentPosition} src="images/diglett.png" onClick={this.handleDiglettClick} />
+            ? <img className={this.state.currentPosition} src="images/diglett-angry.png" draggable="false" />
+            : <img className={this.state.currentPosition} src="images/diglett.png" onClick={this.handleDiglettClick} draggable="false" />
           }
         </div>
       </>

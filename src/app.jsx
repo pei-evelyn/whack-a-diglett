@@ -4,7 +4,6 @@ import Start from './start';
 import Timer from './timer'
 import Score from './score';
 import Health from './health';
-import ReactAudioPlayer from 'react-audio-player';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,8 +14,6 @@ class App extends React.Component {
       hits: 0,
       seconds: 45,
       paused: true,
-      title: true,
-      battle: false,
       difficulty: 'trainer'
     };
     this.startGame = this.startGame.bind(this);
@@ -25,19 +22,19 @@ class App extends React.Component {
     this.playTitleMusic = this.playTitleMusic.bind(this);
     this.pauseTitleMusic = this.pauseTitleMusic.bind(this);
     this.playBattleMusic = this.playBattleMusic.bind(this);
+    this.playDiglettCry = this.playDiglettCry.bind(this);
     this.titleMusic = new Audio('music/title-screen.ogg');
     this.battleMusic = new Audio('music/battle.ogg');
+    this.diglettCry = new Audio('music/diglettcry2.ogg')
   }
 
-  startGame(gender, difficulty, title, battle) {
+  startGame(gender, difficulty) {
     this.setState(state => ({
       isStarted: !state.isStarted,
       gender: gender,
       hits: 0,
       seconds: 45,
       difficulty: difficulty,
-      title: title,
-      battle: battle
     }))
     this.pauseTitleMusic();
     this.playBattleMusic();
@@ -45,7 +42,7 @@ class App extends React.Component {
   }
 
   playTitleMusic() {
-    this.titleMusic.volume = 0.2;
+    this.titleMusic.volume = 0.1;
     this.titleMusic.loop = true;
     this.titleMusic.play();
     this.setState(state => ({
@@ -56,13 +53,13 @@ class App extends React.Component {
   pauseTitleMusic() {
     this.titleMusic.pause();
     this.setState(state => ({
-      paused: true
+      paused: !state.paused
     }))
   }
 
   playBattleMusic() {
     if (!this.state.paused) {
-      this.battleMusic.volume = 0.2;
+      this.battleMusic.volume = 0.1;
       this.battleMusic.loop = true;
       this.battleMusic.play();
     }
@@ -71,6 +68,16 @@ class App extends React.Component {
   pauseBattleMusic() {
     if (this.state.paused) {
       this.battleMusic.pause();
+      this.setState(state => ({
+        paused: true
+      }))
+    }
+  }
+
+  playDiglettCry() {
+    if (this.state.paused) {
+      this.diglettCry.volume = 0.1;
+      this.diglettCry.play();
     }
   }
 
@@ -114,6 +121,7 @@ class App extends React.Component {
           seconds={this.state.seconds}
           countdown={this.startCountdown}
           difficulty={this.state.difficulty}
+          diglettSound={this.playDiglettCry}
         />
         <Timer
           restartGame={this.startGame}
