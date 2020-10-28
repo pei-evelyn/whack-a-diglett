@@ -15,11 +15,21 @@ class Start extends React.Component {
   render() {
     return (
       <div className="start-screen container">
-        <div className="start-title row">
-          <h4>Whack-a-Diglett</h4>
-          <h6>Choose your player:</h6>
+        <div className="row">
+          <h4 className="col start-title mb-4">Whack-a-Diglett</h4>
         </div>
-        <div className="row button-row">
+        <div className="row">
+          <div className="col select-level">
+            <h6 className="start-title mb-3">Choose your difficulty:</h6>
+            <select className="levels mb-4" onChange={this.handleChange}>
+              <option value="trainer">Trainer</option>
+              <option value="gymLeader">Gym Leader</option>
+              <option value="eliteFour">Elite Four</option>
+            </select>
+          </div>
+        </div>
+        <h6 className="start-title mb-3">Choose your player:</h6>
+        <div className="row button-row mb-5">
           <div className="col">
             <button
               className="choose-button"
@@ -33,15 +43,9 @@ class Start extends React.Component {
               onClick={() => this.props.startGame('male', this.state.difficulty)}>
               Select
           </button>
-          {/* update */}
-          <select onChange={this.handleChange}>
-            <option value="trainer">Trainer</option>
-            <option value="gymLeader">Gym Leader</option>
-            <option value="eliteFour">Elite Four</option>
-          </select>
           </div>
         </div>
-        <div className="row mt-5 button-row">
+        <div className="row mb-4 button-row">
           <SoundButton musicState={this.props.musicState} startMusic={this.props.startMusic} />
         </div>
       </div>
