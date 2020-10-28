@@ -15,37 +15,63 @@ class App extends React.Component {
       hits: 0,
       seconds: 45,
       paused: true,
+      title: true,
+      battle: false,
       difficulty: 'trainer'
     };
     this.startGame = this.startGame.bind(this);
     this.increaseHits = this.increaseHits.bind(this);
     this.startCountdown = this.startCountdown.bind(this);
     this.playTitleMusic = this.playTitleMusic.bind(this);
+    this.pauseTitleMusic = this.pauseTitleMusic.bind(this);
+    this.playBattleMusic = this.playBattleMusic.bind(this);
     this.titleMusic = new Audio('music/title-screen.ogg');
+    this.battleMusic = new Audio('music/battle.ogg');
   }
 
-  startGame(gender, difficulty) {
+  startGame(gender, difficulty, title, battle) {
     this.setState(state => ({
       isStarted: !state.isStarted,
       gender: gender,
       hits: 0,
       seconds: 45,
-      difficulty: difficulty
+      difficulty: difficulty,
+      title: title,
+      battle: battle
     }))
+    this.pauseTitleMusic();
+    this.playBattleMusic();
+    this.pauseBattleMusic();
   }
 
   playTitleMusic() {
-    const musicState = this.state.paused
-    if (musicState) {
-      this.titleMusic.play();
-      this.titleMusic.loop = true;
-    } else {
-      this.titleMusic.paused;
-      this.titleMusic.pause();
-    }
+    this.titleMusic.volume = 0.2;
+    this.titleMusic.loop = true;
+    this.titleMusic.play();
     this.setState(state => ({
-      paused: !state.paused
+      paused: false
     }))
+  }
+
+  pauseTitleMusic() {
+    this.titleMusic.pause();
+    this.setState(state => ({
+      paused: true
+    }))
+  }
+
+  playBattleMusic() {
+    if (!this.state.paused) {
+      this.battleMusic.volume = 0.2;
+      this.battleMusic.loop = true;
+      this.battleMusic.play();
+    }
+  }
+
+  pauseBattleMusic() {
+    if (this.state.paused) {
+      this.battleMusic.pause();
+    }
   }
 
   increaseHits() {
@@ -71,6 +97,7 @@ class App extends React.Component {
           startGame={this.startGame}
           startMusic={this.playTitleMusic}
           musicState={this.state.paused}
+          pauseMusic={this.pauseTitleMusic}
         />)
     }
     return (
@@ -94,6 +121,7 @@ class App extends React.Component {
           isOpen={this.state.isOpen}
           score={this.state.hits}
           seconds={this.state.seconds}
+          pauseMusic={this.pauseBattleMusic}
         />
       </div>
     )

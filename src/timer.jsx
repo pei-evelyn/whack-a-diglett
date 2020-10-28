@@ -20,9 +20,11 @@ const Timer = props => {
 
   return (
     <>
-      <Modal hidden={showModal(props)}
+      <Modal
+        hidden={showModal(props)}
         restartGame={props.restartGame}
         score={props.score}
+        pauseMusic={props.pauseMusic}
       />
       <div className="timer-container">
         <p>{renderTime(props)}</p>

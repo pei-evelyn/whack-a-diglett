@@ -5,7 +5,7 @@ class Start extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.state = { difficulty : 'trainer' }
+    this.state = { difficulty: 'trainer' }
   }
 
   handleChange() {
@@ -33,20 +33,20 @@ class Start extends React.Component {
           <div className="col">
             <button
               className="choose-button"
-              onClick={() => this.props.startGame('female', this.state.difficulty)}>
+              onClick={() => this.props.startGame('female', this.state.difficulty, false, true)}>
               Select
           </button>
           </div>
           <div className="col">
             <button
               className="choose-button"
-              onClick={() => this.props.startGame('male', this.state.difficulty)}>
+              onClick={() => this.props.startGame('male', this.state.difficulty, false, true)}>
               Select
           </button>
           </div>
         </div>
         <div className="row mb-4">
-          <SoundButton musicState={this.props.musicState} startMusic={this.props.startMusic} />
+          <SoundButton musicState={this.props.musicState} startMusic={this.props.startMusic} pauseMusic={this.props.pauseMusic} />
         </div>
       </div>
     )
@@ -58,7 +58,7 @@ const SoundButton = props => {
   if (musicPlaying) {
     return <button className="choose-button p-2" onClick={props.startMusic}>Sound On</button>
   } else {
-    return <button className="choose-button p-2" onClick={props.startMusic}>Sound Off</button>
+    return <button className="choose-button p-2" onClick={props.pauseMusic}>Sound Off</button>
   }
 }
 
