@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactAudioPlayer from 'react-audio-player';
 
 class Start extends React.Component {
   constructor(props) {
@@ -33,14 +32,14 @@ class Start extends React.Component {
           <div className="col">
             <button
               className="choose-button"
-              onClick={() => this.props.startGame('female', this.state.difficulty, false, true)}>
+              onClick={() => this.props.startGame('female', this.state.difficulty)}>
               Select
           </button>
           </div>
           <div className="col">
             <button
               className="choose-button"
-              onClick={() => this.props.startGame('male', this.state.difficulty, false, true)}>
+              onClick={() => this.props.startGame('male', this.state.difficulty)}>
               Select
           </button>
           </div>
