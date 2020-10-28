@@ -45,8 +45,9 @@ class App extends React.Component {
   }
 
   playTitleMusic() {
-    this.titleMusic.play();
+    this.titleMusic.volume = 0.2;
     this.titleMusic.loop = true;
+    this.titleMusic.play();
     this.setState(state => ({
       paused: false
     }))
@@ -61,8 +62,9 @@ class App extends React.Component {
 
   playBattleMusic() {
     if (!this.state.paused) {
-      this.battleMusic.play()
+      this.battleMusic.volume = 0.2;
       this.battleMusic.loop = true;
+      this.battleMusic.play();
     }
   }
 
