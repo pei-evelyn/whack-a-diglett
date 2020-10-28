@@ -23,9 +23,10 @@ class App extends React.Component {
     this.pauseTitleMusic = this.pauseTitleMusic.bind(this);
     this.playBattleMusic = this.playBattleMusic.bind(this);
     this.playDiglettCry = this.playDiglettCry.bind(this);
+    this.restartGame = this.restartGame.bind(this);
     this.titleMusic = new Audio('music/title-screen.ogg');
     this.battleMusic = new Audio('music/battle.ogg');
-    this.diglettCry = new Audio('music/diglettcry2.ogg')
+    this.diglettCry = new Audio('music/diglettcry2.ogg');
   }
 
   startGame(gender, difficulty) {
@@ -36,9 +37,20 @@ class App extends React.Component {
       seconds: 45,
       difficulty: difficulty,
     }))
-    this.pauseTitleMusic();
+    this.titleMusic.pause();
     this.playBattleMusic();
-    this.pauseBattleMusic();
+  }
+
+  restartGame() {
+    this.setState(state => ({
+      isStarted: !state.isStarted,
+      hits: 0,
+      seconds: 45,
+    }))
+    if (!this.state.paused) {
+      this.playTitleMusic();
+    }
+    this.battleMusic.pause();
   }
 
   playTitleMusic() {
@@ -53,7 +65,7 @@ class App extends React.Component {
   pauseTitleMusic() {
     this.titleMusic.pause();
     this.setState(state => ({
-      paused: !state.paused
+      paused: true
     }))
   }
 
@@ -62,11 +74,14 @@ class App extends React.Component {
       this.battleMusic.volume = 0.1;
       this.battleMusic.loop = true;
       this.battleMusic.play();
+      this.setState(state => ({
+        paused: false
+      }))
     }
   }
 
   pauseBattleMusic() {
-    if (this.state.paused) {
+    if (!this.state.paused) {
       this.battleMusic.pause();
       this.setState(state => ({
         paused: true
@@ -75,7 +90,7 @@ class App extends React.Component {
   }
 
   playDiglettCry() {
-    if (this.state.paused) {
+    if (!this.state.paused) {
       this.diglettCry.volume = 0.1;
       this.diglettCry.play();
     }
@@ -124,7 +139,7 @@ class App extends React.Component {
           diglettSound={this.playDiglettCry}
         />
         <Timer
-          restartGame={this.startGame}
+          restartGame={this.restartGame}
           openModal={this.openModal}
           isOpen={this.state.isOpen}
           score={this.state.hits}
