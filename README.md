@@ -30,3 +30,17 @@ https://whack-a-diglett.connorashlock.com
 <p>
   <img src="dist/images/whack-a-diglett.gif" alt="whack-a-diglett preview">
 </p>
+
+### Getting Started
+
+1. Clone the repository.
+
+    ```shell
+    git clone https://github.com/Connor-Ashlock/whack-a-diglett.git
+    cd whack-a-diglett
+    ```
+2. Install all dependencies with npm.
+
+    ```shell
+    npm install
+    ```
