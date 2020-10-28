@@ -43,12 +43,6 @@ class Game extends React.Component {
   render() {
     return (
       <>
-        <ReactAudioPlayer
-          src="../dist/music/battle.ogg"
-          src="../dist/music/battle.mp3"
-          autoPlay
-          loop
-        />
         <div className="diglett-container">
           {this.state.isHit
             ? <img className={this.state.currentPosition} src="images/diglett-angry.png" />

@@ -271,3 +271,7 @@ body {
   right: 53px;
   font-size: .8rem;
 }
+
+.music-btn{
+  bottom:0;
+}

@@ -4,6 +4,7 @@ import Start from './start';
 import Timer from './timer'
 import Score from './score';
 import Health from './health';
+import ReactAudioPlayer from 'react-audio-player';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,11 +14,14 @@ class App extends React.Component {
       gender: null,
       hits: 0,
       seconds: 45,
+      paused: true,
       difficulty: 'trainer'
     };
     this.startGame = this.startGame.bind(this);
     this.increaseHits = this.increaseHits.bind(this);
-    this.startCountdown = this.startCountdown.bind(this)
+    this.startCountdown = this.startCountdown.bind(this);
+    this.playTitleMusic = this.playTitleMusic.bind(this);
+    this.titleMusic = new Audio('music/title-screen.ogg');
   }
 
   startGame(gender, difficulty) {
@@ -27,6 +31,20 @@ class App extends React.Component {
       hits: 0,
       seconds: 45,
       difficulty: difficulty
+    }))
+  }
+
+  playTitleMusic() {
+    const musicState = this.state.paused
+    if (musicState) {
+      this.titleMusic.play();
+      this.titleMusic.loop = true;
+    } else {
+      this.titleMusic.paused;
+      this.titleMusic.pause();
+    }
+    this.setState(state => ({
+      paused: !state.paused
     }))
   }
 
@@ -48,7 +66,12 @@ class App extends React.Component {
 
   render() {
     if (!this.state.isStarted) {
-      return <Start startGame={this.startGame} />
+      return (
+        <Start
+          startGame={this.startGame}
+          startMusic={this.playTitleMusic}
+          musicState={this.state.paused}
+        />)
     }
     return (
       <div className={`game-background ${this.state.gender}`}>

@@ -18,7 +18,6 @@ const Timer = props => {
     return props.seconds === 0 ? 'show d-block' : 'hidden';
   }
 
-
   return (
     <>
       <Modal hidden={showModal(props)}

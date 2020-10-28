@@ -41,9 +41,21 @@ class Start extends React.Component {
           </select>
           </div>
         </div>
+        <div className="row mt-5 button-row">
+          <SoundButton musicState={props.musicState} />
+        </div>    
       </div>
     )
   }
 }
 
+const SoundButton = props => {
+  const musicPlaying = props.musicState;
+  if (musicPlaying) {
+    return <button className="choose-button p-2" onClick={props.startMusic}>Sound On</button>
+  } else {
+    return <button className="choose-button p-2" onClick={props.startMusic}>Sound Off</button>
+  }
+}
+      
 export default Start
