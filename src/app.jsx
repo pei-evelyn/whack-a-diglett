@@ -14,7 +14,8 @@ class App extends React.Component {
       gender: null,
       hits: 0,
       seconds: 45,
-      paused: true
+      paused: true,
+      difficulty: 'trainer'
     };
     this.startGame = this.startGame.bind(this);
     this.increaseHits = this.increaseHits.bind(this);
@@ -23,12 +24,13 @@ class App extends React.Component {
     this.titleMusic = new Audio('music/title-screen.ogg');
   }
 
-  startGame(gender) {
+  startGame(gender, difficulty) {
     this.setState(state => ({
       isStarted: !state.isStarted,
       gender: gender,
       hits: 0,
-      seconds: 45
+      seconds: 45,
+      difficulty: difficulty
     }))
   }
 
@@ -72,29 +74,28 @@ class App extends React.Component {
         />)
     }
     return (
-      <>
-        <div className={`game-background ${this.state.gender}`}>
-          <div className="diglett-name">Diglett</div>
-          <div className="diglett-lvl">9</div>
-          <div className="trainer-name">Trainer</div>
-          <div className="trainer-lvl">62</div>
-          <div className="trainer-atr">114 114</div>
-          <Score score={this.state.hits} />
-          <Health />
-          <Game
-            increaseHits={this.increaseHits}
-            seconds={this.state.seconds}
-            countdown={this.startCountdown}
-          />
-          <Timer
-            restartGame={this.startGame}
-            openModal={this.openModal}
-            isOpen={this.state.isOpen}
-            score={this.state.hits}
-            seconds={this.state.seconds}
-          />
-        </div>
-      </>
+      <div className={`game-background ${this.state.gender}`}>
+        <div className="diglett-name">Diglett</div>
+        <div className="diglett-lvl">9</div>
+        <div className="trainer-name">Trainer</div>
+        <div className="trainer-lvl">62</div>
+        <div className="trainer-atr">114 114</div>
+        <Score score={this.state.hits} />
+        <Health />
+        <Game
+          increaseHits={this.increaseHits}
+          seconds={this.state.seconds}
+          countdown={this.startCountdown}
+          difficulty={this.state.difficulty}
+        />
+        <Timer
+          restartGame={this.startGame}
+          openModal={this.openModal}
+          isOpen={this.state.isOpen}
+          score={this.state.hits}
+          seconds={this.state.seconds}
+        />
+      </div>
     )
   }
 }

@@ -24,11 +24,19 @@ class Game extends React.Component {
   }
 
   componentDidMount() {
+    let time = 0;
+    if (this.props.difficulty === 'trainer') {
+      time = 900;
+    } else if (this.props.difficulty === 'gymLeader') {
+      time = 800;
+    } else if (this.props.difficulty === 'eliteFour') {
+      time = 600;
+    }
     this.getDiglettPosition();
     let int = setInterval(() => {
       if (this.props.seconds === 0) return clearInterval(int);
       this.getDiglettPosition();
-    }, 900)
+    }, time)
     this.props.countdown();
   }
 
