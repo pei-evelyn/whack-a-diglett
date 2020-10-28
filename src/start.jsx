@@ -42,8 +42,8 @@ class Start extends React.Component {
           </div>
         </div>
         <div className="row mt-5 button-row">
-          <SoundButton musicState={props.musicState} />
-        </div>    
+          <SoundButton musicState={this.props.musicState} startMusic={this.props.startMusic} />
+        </div>
       </div>
     )
   }
@@ -57,5 +57,5 @@ const SoundButton = props => {
     return <button className="choose-button p-2" onClick={props.startMusic}>Sound Off</button>
   }
 }
-      
+
 export default Start
