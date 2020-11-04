@@ -1,5 +1,5 @@
 # whack-a-diglett 
-# 🎉Mintbean Hackathon Winner🎉 [Link here!](https://www.linkedin.com/posts/mintbean_hackathon-javascript-javadevelopers-activity-6729495804303745025-10H6)
+## 🎉Mintbean Hackathon Winner🎉 [Link here!](https://www.linkedin.com/posts/mintbean_hackathon-javascript-javadevelopers-activity-6729495804303745025-10H6)
 A dynamic web app whack-a-mole game inspired by Pokemon.
 
 ## Technologies Used
